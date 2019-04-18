@@ -1,4 +1,5 @@
 import { Component, OnInit, ElementRef } from '@angular/core';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-main-menu',
@@ -11,7 +12,7 @@ export class MainMenuComponent implements OnInit {
   menuList = ['Play Now', 'Exit'];
   menuActiveIndex = 0;
 
-  constructor(private elRef:ElementRef) {
+  constructor(private router:Router) {
   }
 
   ngOnInit() {
@@ -52,7 +53,16 @@ export class MainMenuComponent implements OnInit {
   }
 
   menuSelection(index){
-    console.log((this.mainMenu.children[index] as HTMLUListElement).innerText)
+    const selection = (this.mainMenu.children[index] as HTMLUListElement).innerText;
+
+    switch(selection){
+      case 'Play Now':
+        this.router.navigateByUrl('Play');
+        break;
+      case 'Exit':
+        window.close();
+        break;
+    }
 
   }
 
