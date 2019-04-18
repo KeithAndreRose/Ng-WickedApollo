@@ -1,1 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
+@import'reset.css';
+
+:root{
+  --textColor: #fff;
+  --backgroundColor: #000;
+}
+
+body{
+  background: var(--backgroundColor);
+  color: var(--textColor);
+  max-width: 100%;
+  max-height: 100%;
+}
