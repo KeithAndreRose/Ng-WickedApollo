@@ -9,7 +9,7 @@ import { Router } from "@angular/router";
 export class MainMenuComponent implements OnInit {
 
   mainMenu: HTMLElement;
-  menuList = ['Play Now', 'Exit'];
+  menuList = ['Play Now','Editor', 'Exit'];
   menuActiveIndex = 0;
 
   constructor(private router:Router) {
@@ -58,6 +58,9 @@ export class MainMenuComponent implements OnInit {
     switch(selection){
       case 'Play Now':
         this.router.navigateByUrl('Play');
+        break;
+      case 'Editor':
+        this.router.navigateByUrl('Editor');
         break;
       case 'Exit':
         window.close();

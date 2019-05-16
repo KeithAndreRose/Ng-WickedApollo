@@ -1,0 +1,71 @@
+main {
+  width: 100%;
+  height: calc(100% - 4rem);
+  border: solid thick white;
+  padding: 1rem;
+  display: grid;
+  grid-gap: .5rem;
+  align-content: space-around;
+  grid-template-columns: 30% 70%;
+  grid-template-rows: 75% 25%;
+}
+
+.rooms{
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.room-list-item{
+  border-bottom: solid 1.5px white;
+  text-align: center;
+  padding: .5rem;
+}
+
+.room-list-item:hover,
+.room-list-item.active{
+  background: white;
+  color: black;
+}
+
+.subrooms{
+  grid-column: 1/2;
+  grid-row: 2/3;
+}
+
+.description{
+  grid-column: 2/3;
+  grid-row: 1/2;
+}
+
+.description-textarea{
+  width: 100%;
+  height: calc(100% - 1.5rem);
+  background: none;
+  border: none;
+  padding: 1rem;
+  color: white;
+  font-family: 'VT323';
+  outline: none;
+}
+
+.paths{
+  grid-column: 2/3;
+  grid-row: 2/3;
+}
+
+.editor-window {
+  position: relative;
+  border: solid thick white;
+}
+
+.editor-window-label{
+  position: relative;
+  width: 100%;
+  color: white;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  text-align: center;
+  margin-top: .5rem;
+  margin-left: .5rem;
+  border-bottom: solid thick white;
+}

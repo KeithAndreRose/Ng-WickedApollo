@@ -1,6 +1,9 @@
 /* You can add global styles to this file, and also import other style files */
 @import'reset.css';
 
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=VT323');
+
 :root{
   --textColor: #fff;
   --backgroundColor: #000;
@@ -11,4 +14,5 @@ body{
   color: var(--textColor);
   max-width: 100%;
   max-height: 100%;
+  font-family: 'VT323'
 }

@@ -3,14 +3,16 @@ import { NgModule } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { MainMenuComponent } from './main-menu/main-menu.component';
-import { PlaySpaceComponent } from './play-space/play-space.component';
+import { MainMenuComponent } from './components/main-menu/main-menu.component';
+import { PlaySpaceComponent } from './components/play-space/play-space.component';
+import { EditorComponent } from './components/editor/editor.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainMenuComponent,
-    PlaySpaceComponent
+    PlaySpaceComponent,
+    EditorComponent
   ],
   imports: [
     BrowserModule,
