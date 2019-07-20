@@ -11,13 +11,11 @@ export class MainMenuComponent implements OnInit {
   mainMenu: HTMLElement;
   menuList = ['Play Now','Editor', 'Exit'];
   menuActiveIndex = 0;
-  soundEmitter: HTMLAudioElement;
   constructor(private router:Router) {
   }
 
   ngOnInit() {
     this.mainMenu = document.getElementById('main-menu');
-    this.soundEmitter = document.getElementById('cursorSfx') as HTMLAudioElement;
   }
 
   ngAfterViewInit() {
@@ -35,10 +33,9 @@ export class MainMenuComponent implements OnInit {
   }
 
   cycleMenu(direction) {
-    this.soundEmitter.play();
     let index = this.menuActiveIndex;
     let menuLength = this.mainMenu.getElementsByTagName('li').length - 1;
-    this.toggleActiveMenuItem(index);
+    this.untoggleActiveMenuItem(index);
     direction === 'UP' ? index-- : index++;
 
     if(index > menuLength)
@@ -49,13 +46,19 @@ export class MainMenuComponent implements OnInit {
     this.toggleActiveMenuItem(index);
   }
 
+  untoggleActiveMenuItem(index){
+    this.mainMenu.children[index].classList.remove('active');
+  }
+
   toggleActiveMenuItem(index) {
-    this.mainMenu.children[index].classList.toggle('active');
+    (this.mainMenu.children[index].children[0] as HTMLAudioElement).play();
+    this.mainMenu.children[index].classList.add('active');
     this.menuActiveIndex = index;
   }
 
   menuSelection(index){
     const selection = (this.mainMenu.children[index] as HTMLUListElement).innerText;
+    (this.mainMenu.children[index].children[0] as HTMLAudioElement).play();
 
     switch(selection){
       case 'Play Now':
