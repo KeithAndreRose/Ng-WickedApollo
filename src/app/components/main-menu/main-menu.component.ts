@@ -11,12 +11,13 @@ export class MainMenuComponent implements OnInit {
   mainMenu: HTMLElement;
   menuList = ['Play Now','Editor', 'Exit'];
   menuActiveIndex = 0;
-
+  soundEmitter: HTMLAudioElement;
   constructor(private router:Router) {
   }
 
   ngOnInit() {
     this.mainMenu = document.getElementById('main-menu');
+    this.soundEmitter = document.getElementById('cursorSfx') as HTMLAudioElement;
   }
 
   ngAfterViewInit() {
@@ -34,6 +35,7 @@ export class MainMenuComponent implements OnInit {
   }
 
   cycleMenu(direction) {
+    this.soundEmitter.play();
     let index = this.menuActiveIndex;
     let menuLength = this.mainMenu.getElementsByTagName('li').length - 1;
     this.toggleActiveMenuItem(index);
